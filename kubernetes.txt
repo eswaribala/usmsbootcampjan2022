@@ -18,6 +18,7 @@ kubectl get svc
 kubectl get deploy
 kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql -h mysql -ppassword
 kubectl exec -it mongo-app-7559754fbf-n7mx4 /bin/bash
+kubectl exec -it cassandra-app-7b85c8bd57-4l5wz /bin/bash
 kubectl apply -f deployment-v7.yml
 kubectl expose deployment --port 7070 customerapp --type=LoadBalancer --name=customerservicev1
 kubectl port-forward svc/customerservicev1 8060:7070
@@ -27,3 +28,4 @@ az network public-ip create --resource-group  mc_vebgroup_vebcluster_southindia 
 
 
 kubectl autoscale deployment customerapp --min=1 --max=4 --cpu-percent=20
+
